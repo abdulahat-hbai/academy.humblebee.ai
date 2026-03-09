@@ -1,0 +1,28 @@
+---
+import { cn } from "@/lib/utils";
+
+interface Props {
+  variant?: "default" | "secondary" | "destructive" | "outline" | "ghost" | "link";
+  class?: string;
+  [key: string]: any;
+}
+
+const { variant = "default", class: className, ...rest } = Astro.props;
+
+const variantClasses: Record<string, string> = {
+  default: "bg-primary text-primary-foreground",
+  secondary: "bg-secondary border-border text-secondary-foreground",
+  destructive: "bg-destructive text-white",
+  outline: "border-border text-foreground",
+  ghost: "",
+  link: "text-primary underline-offset-4",
+};
+
+const base = "inline-flex items-center justify-center rounded-full border border-transparent px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-[color,box-shadow] overflow-hidden";
+
+const classes = cn(base, variantClasses[variant], className);
+---
+
+<span class={classes} {...rest}>
+  <slot />
+</span>

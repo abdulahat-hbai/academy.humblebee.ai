@@ -1,0 +1,189 @@
+---
+const testimonials = [
+  {
+    img: "/images/talents/uktam.webp",
+    name: "Uktam Nishonov",
+    role: "Data Scientist at HumblebeeAI",
+    quote: "HumbleBeeAI Academy transformed my career. The hands-on projects gave me real-world experience that impressed employers.",
+  },
+  {
+    img: "/images/talents/dilshod.webp",
+    name: "Dilshod Yusupov",
+    role: "ML Engineer at TechVenture",
+    quote: "The mentorship here is unlike anything else. Real feedback from real engineers made all the difference in my growth.",
+  },
+  {
+    img: "/images/talents/humoyun.webp",
+    name: "Humoyun Karimov",
+    role: "AI Developer at StartupX",
+    quote: "I went from zero experience to landing my first AI job in 6 months. The curriculum is incredibly well structured.",
+  },
+  {
+    img: "/images/talents/javohir.webp",
+    name: "Javohir Toshmatov",
+    role: "Backend Engineer at CloudBase",
+    quote: "Working on real projects with mentors who have actual industry experience set me apart from other candidates.",
+  },
+  {
+    img: "/images/talents/otabek.webp",
+    name: "Otabek Rakhimov",
+    role: "Full Stack Engineer at DevHouse",
+    quote: "The RISE© framework taught me how to think like an engineer, not just code like one. Invaluable experience.",
+  },
+];
+---
+
+<div id="testimonials-carousel">
+  <!-- Header -->
+  <div class="flex items-end justify-between mb-14">
+    <div>
+      <p class="text-[13px] tracking-widest font-medium text-foreground/40 uppercase mb-6">
+        <span class="font-bold">/04</span> TESTIMONIALS
+      </p>
+      <h2 class="text-4xl md:text-[50px] lg:text-[56px] leading-[1.1] font-heading font-medium tracking-tight text-foreground">
+        What our Graduates say?
+      </h2>
+    </div>
+
+    <div class="flex gap-3 mb-1 shrink-0">
+      <button
+        id="carousel-prev"
+        aria-label="Previous"
+        class="w-12 h-12 border border-border flex items-center justify-center transition-colors hover:bg-foreground hover:text-background disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5" /><path d="m12 19-7-7 7-7" />
+        </svg>
+      </button>
+      <button
+        id="carousel-next"
+        aria-label="Next"
+        class="w-12 h-12 border border-border flex items-center justify-center transition-colors hover:bg-foreground hover:text-background disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Carousel track -->
+  <div class="overflow-hidden" id="carousel-viewport">
+    <div class="flex gap-6 transition-transform duration-500 ease-in-out items-stretch" id="carousel-track">
+      {testimonials.map((item) => (
+        <div class="carousel-card shrink-0 h-auto border border-border bg-white flex flex-col">
+          <div class="flex flex-col h-full p-6 lg:p-8">
+            <!-- Thumbnail -->
+            <div class="relative aspect-[4/3] overflow-hidden bg-muted mb-6 shrink-0">
+              <img src={item.img} alt={item.name} class="w-full h-full object-cover object-top" />
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-14 h-14 rounded-full bg-black/30 backdrop-blur-sm border border-white/30 flex items-center justify-center">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="ml-1 text-white">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Text content -->
+            <div class="flex flex-col flex-1">
+              <p class="testimonial-quote text-[15px] text-foreground leading-[1.7] font-sans line-clamp-3">
+                {item.quote}
+              </p>
+
+              <div class="h-8 flex items-center mt-3">
+                <button class="read-more-btn text-[13px] font-semibold text-foreground/40 tracking-wider hover:text-foreground transition-colors hidden cursor-pointer">
+                  READ MORE +
+                </button>
+              </div>
+
+              <!-- Author -->
+              <div class="border-t border-border pt-6 mt-8">
+                <p class="text-[15px] font-semibold text-foreground font-heading">{item.name}</p>
+                <p class="text-[13px] text-subtitle mt-0.5">{item.role}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>
+  const GAP = 24;
+
+  function getVisibleCount(): number {
+    if (window.innerWidth < 640) return 1;
+    if (window.innerWidth < 1024) return 2;
+    return 3;
+  }
+
+  const container = document.getElementById("testimonials-carousel");
+  if (container) {
+    const viewport = document.getElementById("carousel-viewport")!;
+    const track = document.getElementById("carousel-track")!;
+    const cards = container.querySelectorAll<HTMLDivElement>(".carousel-card");
+    const prevBtn = document.getElementById("carousel-prev") as HTMLButtonElement;
+    const nextBtn = document.getElementById("carousel-next") as HTMLButtonElement;
+    const totalCards = cards.length;
+
+    let offset = 0;
+    let visibleCount = getVisibleCount();
+    let slideWidth = 0;
+
+    function measure() {
+      visibleCount = getVisibleCount();
+      const containerWidth = viewport.offsetWidth;
+      const cardW = (containerWidth - GAP * (visibleCount - 1)) / visibleCount;
+      slideWidth = cardW + GAP;
+
+      cards.forEach((card) => {
+        card.style.width = `${cardW}px`;
+      });
+
+      offset = Math.min(offset, Math.max(0, totalCards - visibleCount));
+      updatePosition();
+    }
+
+    function updatePosition() {
+      track.style.transform = `translateX(${-offset * slideWidth}px)`;
+      prevBtn.disabled = offset <= 0;
+      nextBtn.disabled = offset >= totalCards - visibleCount;
+    }
+
+    prevBtn.addEventListener("click", () => {
+      if (offset > 0) {
+        offset--;
+        updatePosition();
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if (offset < totalCards - visibleCount) {
+        offset++;
+        updatePosition();
+      }
+    });
+
+    // Read more buttons
+    const quotes = container.querySelectorAll<HTMLParagraphElement>(".testimonial-quote");
+    const readMoreBtns = container.querySelectorAll<HTMLButtonElement>(".read-more-btn");
+
+    quotes.forEach((quote, i) => {
+      if (quote.scrollHeight > quote.clientHeight + 1) {
+        readMoreBtns[i].classList.remove("hidden");
+      }
+    });
+
+    readMoreBtns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        quotes[i].classList.remove("line-clamp-3");
+        btn.classList.add("hidden");
+      });
+    });
+
+    measure();
+    window.addEventListener("resize", measure);
+  }
+</script>

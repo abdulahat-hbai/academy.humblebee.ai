@@ -1,0 +1,336 @@
+---
+import Container from "../layout/Container.astro";
+import SectionLine from "../ui/SectionLine.astro";
+
+const mentors = [
+  {
+    img: "/mentors/juma.webp",
+    name: "Jumabek Alikhanov",
+    role: "Founder of HumbleBeeAI, PhD in Machine Learning with 10+ years of teaching and industry experience",
+    socials: { linkedin: "#", instagram: "#", github: "#" }
+  },
+  {
+    img: "/mentors/oybek.webp",
+    name: "Oyberk Eraliev",
+    role: "PhD in AI and Machine Learning, 5+ years of teaching and industry experience. Expert in Neural Networks.",
+    socials: { linkedin: "#", instagram: "#", github: "#" }
+  },
+  {
+    img: "/mentors/valijon.webp",
+    name: "Valijon Turakulov",
+    role: "Lead Software Architect, specializing in high-performance distributed AI systems and edge computing.",
+    socials: { linkedin: "#", instagram: "#", github: "#" }
+  },
+  {
+    img: "/mentors/jahongir.webp",
+    name: "Jakhongir Alikhanov",
+    role: "Lead Instructor & AI Researcher, specializing in Deep Learning and Computer Vision technologies.",
+    socials: { linkedin: "#", github: "#" }
+  },
+  {
+    img: "/mentors/sohibjon.webp",
+    name: "Sohibjon Baratov",
+    role: "DevOps Engineer at HumbleBeeAI, 3+ years of experience in cloud infrastructure and scaling.",
+    socials: { linkedin: "#", instagram: "#" }
+  }
+];
+---
+
+<section id="mentors-section" class="relative mt-28 bg-background overflow-hidden">
+  <SectionLine />
+
+  <Container class="py-20 lg:py-32 relative">
+    <div class="flex flex-col lg:flex-row gap-0 lg:gap-16">
+
+      <!-- Left Column: Fixed Title Block -->
+      <div class="lg:w-[35%] flex flex-col justify-between min-h-[450px] relative z-30 bg-background lg:pr-12 md:pointer-events-none">
+        <!-- Background Mask to hide scroll behind -->
+        <div class="absolute inset-y-0 -left-[50vw] right-0 bg-background z-[-1] hidden lg:block"></div>
+
+        <div class="bg-background py-2 pointer-events-auto">
+          <p class="text-[13px] tracking-[0.2em] font-medium text-foreground uppercase mb-6">
+            <span class="text-subtitle font-bold">/06</span> TEAM
+          </p>
+          <h2 class="text-5xl md:text-7xl lg:text-[76px] leading-[1] font-heading font-medium tracking-tight text-foreground max-w-xs">
+            Meet our mentors
+          </h2>
+        </div>
+
+        <div class="mt-auto flex items-center justify-between lg:pr-4 bg-background py-8 pointer-events-auto">
+          <div class="text-[18px] font-sans font-medium text-foreground min-w-[100px]">
+            <span id="mentor-current">01</span> <span class="text-zinc-400">/ {mentors.length.toString().padStart(2, '0')}</span>
+          </div>
+
+          <div class="flex gap-0 border border-border bg-background">
+            <button id="mentors-prev" class="p-6 hover:bg-zinc-100 transition-colors border-r border-border disabled:opacity-20 cursor-pointer" aria-label="Previous">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5"></path><path d="m12 19-7-7 7-7"></path>
+              </svg>
+            </button>
+            <button id="mentors-next" class="p-6 hover:bg-zinc-100 transition-colors disabled:opacity-20 cursor-pointer" aria-label="Next">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Clipped Slider -->
+      <div class="lg:w-[65%] relative z-10">
+        <!-- Viewport clips content -->
+        <div id="mentors-track-viewport" class="overflow-visible lg:overflow-visible">
+          <div id="mentors-track" class="flex gap-6 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] items-start">
+            {mentors.map((mentor, index) => (
+              <div
+                class={`mentor-card shrink-0 flex flex-col bg-white border border-border transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] overflow-hidden ${index === 0 ? 'active' : ''}`}
+                data-index={index}
+              >
+                <!-- Image Container -->
+                <div class="mentor-image-wrapper transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] overflow-hidden bg-zinc-50 flex-shrink-0 relative">
+                  <img
+                    src={mentor.img}
+                    alt={mentor.name}
+                    class="absolute inset-0 w-full h-full object-cover object-top transition-all duration-700 ease-out mentor-img"
+                  />
+                </div>
+
+                <!-- Info Container: compact for inactive, expanded for active -->
+                <div class="info-box transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] bg-white relative z-10">
+                  <h3 class="mentor-name font-semibold font-heading text-foreground leading-tight transition-all duration-500">
+                    {mentor.name}
+                  </h3>
+
+                  <div class="mentor-details">
+                    <p class="text-[15px] text-zinc-500 font-sans leading-relaxed">
+                      {mentor.role}
+                    </p>
+                  </div>
+
+                  <!-- Bottom Bar -->
+                  <div class="mentor-footer">
+                    <div class="flex items-center gap-4 pt-6 border-t border-zinc-100">
+                      <span class="text-zinc-200 text-[12px] font-bold tracking-[0.3em] uppercase mr-auto">// MENTOR</span>
+                      {mentor.socials.linkedin && (
+                        <a href={mentor.socials.linkedin} target="_blank" class="text-zinc-400 hover:text-brand transition-colors">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                      )}
+                      {mentor.socials.instagram && (
+                        <a href={mentor.socials.instagram} target="_blank" class="text-zinc-400 hover:text-brand transition-colors">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                      )}
+                      {mentor.socials.github && (
+                        <a href={mentor.socials.github} target="_blank" class="text-zinc-400 hover:text-brand transition-colors">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+
+  <style>
+    /* ========== INACTIVE CARD: compact image + name only ========== */
+    .mentor-card {
+      width: 220px;
+      flex: 0 0 auto;
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .mentor-image-wrapper {
+      padding-top: 130%; /* tall portrait ratio for inactive */
+      transition: padding-top 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    /* Info box — compact: just enough for the name */
+    .info-box {
+      padding: 16px 16px 18px;
+    }
+
+    .mentor-name {
+      font-size: 16px;
+      text-align: center;
+    }
+
+    /* Hide details & footer on inactive cards */
+    .mentor-details {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+                  opacity 0.4s ease,
+                  margin 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      margin-top: 0;
+    }
+
+    .mentor-footer {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+                  opacity 0.4s ease,
+                  margin 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      margin-top: 0;
+    }
+
+    /* ========== ACTIVE CARD: expanded with info ========== */
+    .mentor-card.active {
+      width: 340px;
+      border-bottom: 4px solid var(--brand, #facc15);
+      box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.08);
+    }
+
+    .mentor-card.active .mentor-image-wrapper {
+      padding-top: 85%; /* shorter — shoulder level */
+    }
+
+    .mentor-card.active .info-box {
+      padding: 24px 24px 28px;
+    }
+
+    .mentor-card.active .mentor-name {
+      font-size: 26px;
+      letter-spacing: -0.02em;
+      text-align: left;
+    }
+
+    .mentor-card.active .mentor-details {
+      max-height: 200px;
+      opacity: 1;
+      margin-top: 14px;
+    }
+
+    .mentor-card.active .mentor-footer {
+      max-height: 120px;
+      opacity: 1;
+      margin-top: 20px;
+    }
+
+    .mentor-card.active .mentor-img {
+      transform: scale(1.05);
+    }
+
+    /* Hide on left fix: The Title Column has a background mask */
+    @media (min-width: 1024px) {
+      #mentors-track-viewport {
+        margin-left: -100px;
+        padding-left: 100px;
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1023px) {
+      .mentor-card {
+        width: 65vw;
+        max-width: 260px;
+      }
+      .mentor-card.active {
+        width: 75vw;
+        max-width: 320px;
+      }
+      #mentors-track-viewport {
+        overflow: hidden;
+      }
+      .lg\:w-\[35\%\] {
+        min-height: auto;
+      }
+    }
+  </style>
+
+  <script>
+    function initMentors() {
+      const section = document.getElementById('mentors-section');
+      if (!section) return;
+
+      const track = document.getElementById('mentors-track')!;
+      const cards = section.querySelectorAll<HTMLDivElement>('.mentor-card');
+      const prevBtn = document.getElementById('mentors-prev') as HTMLButtonElement;
+      const nextBtn = document.getElementById('mentors-next') as HTMLButtonElement;
+      const counterCurrent = document.getElementById('mentor-current')!;
+
+      let currentIndex = 0;
+      const GAP = 24;
+
+      function updateCarousel(newIndex: number) {
+        currentIndex = Math.max(0, Math.min(newIndex, cards.length - 1));
+
+        // Update visual states
+        cards.forEach((card, i) => {
+          if (i === currentIndex) {
+            card.classList.add('active');
+          } else {
+            card.classList.remove('active');
+          }
+        });
+
+        // Set a small timeout to let the DOM update dimensions before calculating
+        setTimeout(() => {
+          const viewport = document.getElementById('mentors-track-viewport')!;
+          const viewportWidth = viewport.offsetWidth;
+
+          // Calculate target offset (the translation needed to put current card at the start)
+          let targetOffset = 0;
+          for (let i = 0; i < currentIndex; i++) {
+            targetOffset += cards[i].offsetWidth + GAP;
+          }
+
+          // Calculate max possible scroll (to keep last card at right edge)
+          let totalTrackWidth = 0;
+          cards.forEach((card, i) => {
+            totalTrackWidth += card.offsetWidth + (i === cards.length - 1 ? 0 : GAP);
+          });
+
+          const maxScroll = Math.max(0, totalTrackWidth - viewportWidth + 100); // 100 for the left bleed offset
+
+          // Clamp the offset so we don't scroll into empty space
+          const finalOffset = Math.min(targetOffset, maxScroll);
+
+          track.style.transform = `translateX(${-finalOffset}px)`;
+
+          // UI Counter and Buttons
+          counterCurrent.textContent = (currentIndex + 1).toString().padStart(2, '0');
+          prevBtn.disabled = currentIndex === 0;
+          nextBtn.disabled = currentIndex === cards.length - 1;
+        }, 50);
+      }
+
+      // Interaction listeners
+      cards.forEach((card, i) => {
+        card.addEventListener('click', () => updateCarousel(i));
+      });
+
+      prevBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        updateCarousel(currentIndex - 1);
+      });
+
+      nextBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        updateCarousel(currentIndex + 1);
+      });
+
+      // Handle Resize calculation fixes
+      let resizeTimer: any;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => updateCarousel(currentIndex), 100);
+      });
+
+      // Init first view
+      updateCarousel(0);
+    }
+
+    // Astro page load handling
+    initMentors();
+    document.addEventListener('astro:after-swap', initMentors);
+  </script>
+</section>

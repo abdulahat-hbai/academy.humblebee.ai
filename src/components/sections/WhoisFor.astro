@@ -1,0 +1,117 @@
+---
+import Container from "../layout/Container.astro";
+import SectionLine from "../ui/SectionLine.astro";
+
+const greatFitItems = [
+  "Consistent and reliable week to week",
+  "Coachable and open to feedback",
+  "Ready for deadlines, review cycles, and rework",
+  "Focused on measurable improvement, not “finishing content”",
+  "Serious about building proof: demos, reports, benchmarks, repos",
+];
+
+const notFitItems = [
+  "Want a light workload or purely lecture-based learning",
+  "Prefer certificates over evidence",
+  "Cannot commit consistent time each week",
+];
+---
+
+<section class="relative mt-28">
+  <SectionLine />
+  <Container class="py-20 lg:py-32">
+    <div
+      class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-20 items-start"
+    >
+      <div class="lg:w-[40%]">
+        <p
+          class="text-[13px] tracking-widest font-medium text-foreground uppercase mb-6"
+        >
+          <span class="text-subtitle font-bold">/03</span> WHO?
+        </p>
+        <h2
+          class="text-4xl md:text-[56px] lg:text-[64px] leading-[1.1] font-heading font-medium tracking-tight text-foreground"
+        >
+          Who is it for?
+        </h2>
+      </div>
+
+      <div
+        class="lg:w-[60%] grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border"
+      >
+        {/* Great Fit Column */}
+        <div class="bg-white flex flex-col">
+          <div class="bg-brand py-4 px-6">
+            <h3
+              class="text-[13px] font-bold tracking-wider text-brand-foreground uppercase"
+            >
+              GREAT FIT IF YOU:
+            </h3>
+          </div>
+          <div class="p-8 flex flex-col gap-6">
+            {
+              greatFitItems.map((item) => (
+                <div class="flex gap-4 items-start">
+                  <div class="w-5 h-5 bg-black flex items-center justify-center shrink-0 mt-1">
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#facc15"
+                      stroke-width="4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </div>
+                  <p class="text-[15px] md:text-[16px] text-foreground font-medium font-sans leading-snug">
+                    {item}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        {/* Probably Not Fit Column */}
+        <div class="bg-[#f2f2f2] flex flex-col">
+          <div class="bg-[#e6e6e6] py-4 px-6">
+            <h3
+              class="text-[13px] font-bold tracking-wider text-black/70 uppercase"
+            >
+              PROBABLY NOT A FIT IF YOU:
+            </h3>
+          </div>
+          <div class="p-8 flex flex-col gap-6">
+            {
+              notFitItems.map((item) => (
+                <div class="flex gap-4 items-start">
+                  <div class="w-5 h-5 bg-red-100 flex items-center justify-center shrink-0 mt-1">
+                    <svg
+                      width="10"
+                      height="10"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#ef4444"
+                      stroke-width="4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                  </div>
+                  <p class="text-[15px] md:text-[16px] text-black/70 font-medium font-sans leading-snug">
+                    {item}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

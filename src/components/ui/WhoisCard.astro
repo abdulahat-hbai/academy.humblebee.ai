@@ -1,0 +1,20 @@
+---
+interface Props {
+  title: string;
+  description: string[];  
+}
+const {title, description=[] }= Astro.props;
+---
+
+<div class="min-h-85 flex flex-col  bg-background1 border-r border-b border-border  p-10">
+    <h3 class="text-3xl font-semibold font-heading">
+      {title}
+    </h3>
+    <p class="mt-4 space-y-3 max-w-sm ">
+      {description.map((item) =>(
+        <ul class="text-subtitle text-lg font-sans p-2">
+          {item}
+        </ul>
+      ))}
+    </p>
+</div>

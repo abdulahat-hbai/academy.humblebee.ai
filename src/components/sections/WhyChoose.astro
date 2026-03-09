@@ -1,0 +1,70 @@
+---
+import Container from "@/components/layout/Container.astro";
+import SectionLine from "@/components/ui/SectionLine.astro";
+import FeatureCard from "../ui/FeatureCard.astro";
+// import FeatureCard from "@/components/academy/FeatureCard.astro";
+
+const features = [
+  {
+    title: "Mentor review summary",
+    description:
+      "Strengths, gaps, and readiness, tied to what you actually delivered",
+    img: "/images/whychoose1.png",
+  },
+  {
+    title: "Portfolio of shipped work",
+    description:
+      "Realistic deliverables with clear evidence (repos, demos, reports, benchmarks)",
+    img: "/images/whychoose2.png",
+  },
+  {
+    title: "Certificates",
+    description:
+      "Foundations / Specialist / Mastery milestones awarded as you meet program standards",
+    img: "/images/whychoose3.png",
+  },
+  {
+    title: "Performance transcript (RISE©-backed )",
+    description:
+      "A record of how you perform over time: consistency, execution, teamwork, and growth",
+    img: "/images/whychoose4.png",
+  },
+];
+---
+
+<section class="relative mt-28">
+  <SectionLine />
+  <Container class="pt-20 pb-24">
+    <div
+      class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-20 mb-20 items-start"
+    >
+      <div class="lg:w-[45%]">
+        <p
+          class="text-[13px] tracking-[0.1em] font-medium text-foreground uppercase mb-6 flex items-center gap-1.5"
+        >
+          <span class="text-subtitle font-bold">/01</span> WHY US?
+        </p>
+        <h2
+          class="text-3xl md:text-[56px] lg:text-[64px] leading-[1.1] font-heading font-medium tracking-tight text-foreground"
+        >
+          Why choose<br />HumbleBeeAI
+        </h2>
+      </div>
+      <div class="lg:w-[50%] lg:pt-14">
+        <p
+          class="text-[17px] text-subtitle font-medium font-sans leading-[1.6]"
+        >
+          This is full-time training built to help you create value, not just
+          complete lessons. Most of your time is spent working the way real
+          teams work: collaborating, building, reviewing, improving, and helping
+          others grow. The syllabus supports that work - it's there to give you
+          the tools you need, exactly when you need them.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {features.map((feature) => <FeatureCard {...feature} />)}
+    </div>
+  </Container>
+</section>

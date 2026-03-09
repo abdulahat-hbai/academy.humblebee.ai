@@ -1,0 +1,23 @@
+---
+import Button from "@/components/ui/Button.astro";
+import Container from "@/components/layout/Container.astro";
+---
+
+<header class="border-b border-border">
+  <Container class="flex items-center justify-between px-2 py-4">
+    <div>
+      <img src="images/logo.svg" class="h-8" />
+    </div>
+    <div class="hidden md:flex items-center gap-8 text-base">
+      <a href="#" class="hover:opacity-60 transition">About</a>
+      <a href="#" class="hover:opacity-60 transiton">Why HBAI Academy</a>
+      <a href="#" class="hover:opacity-60 transition">Programs</a>
+      <a href="#" class="hover:opacity-60 transition">Scholarship</a>
+      <a href="#" class="hover:opacity-60 transition">FAQ</a>
+    </div>
+    <!-- ACTIONS -->
+    <div class="flex items-center gap-3">
+      <Button>Book a call</Button>
+    </div>
+  </Container>
+</header>
