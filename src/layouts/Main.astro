@@ -1,7 +1,6 @@
 ---
 import Container from "@/components/layout/Container.astro";
 import "../styles/global.css";
-const { content } = Astro.props;
 ---
 
 <html lang="en">
@@ -27,9 +26,9 @@ const { content } = Astro.props;
 	</head>
 	<body class="relative min-h-screen bg-background font-sans antialiased overflow-x-hidden">
 		<Container
-			class="fixed inset-0 z-50 pointer-events-none mix-blend-difference"
+			class="fixed inset-0 z-50 pointer-events-none"
 		>
-			<div class="mx-auto h-full border-x border-white/15"></div>
+			<div class="mx-auto h-full border-x border-border"></div>
 		</Container>
 		<main class="relative z-10">
 			<slot />
