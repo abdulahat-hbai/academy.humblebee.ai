@@ -10,21 +10,26 @@ import SectionLine from "../ui/SectionLine.astro";
   <div class="w-full flex flex-col lg:flex-row min-h-105 lg:min-h-125">
 
     <!-- Left: Dark panel with label, title, button -->
-    <div class="lg:w-[40%] bg-black flex flex-col justify-end px-8 py-14 lg:py-20 lg:pl-20 xl:pl-24">
-      <p class="section-label text-white mb-0">
-        <span class="text-brand">/05</span> ABOUT
-      </p>
-      <h2 class="section-title text-white mt-4 mb-10">About us</h2>
-      <a href="#" class="flex items-stretch group cursor-pointer h-fit no-underline w-fit">
-        <div class="bg-brand px-8 py-4 text-black font-bold uppercase tracking-widest text-[16px] group-hover:bg-brand-hover transition-colors">
-          More about us
-        </div>
-        <div class="bg-brand border-l border-black/10 px-4 flex items-center justify-center group-hover:bg-brand-hover transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform duration-300">
-            <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
-          </svg>
-        </div>
-      </a>
+    <div 
+      class="lg:w-[40%] bg-black flex flex-col justify-end py-14 lg:py-20 px-8" 
+      style="padding-left: clamp(2rem, calc((100vw - 1280px) / 2 + 2rem), 50vw);"
+    >
+      <div class="max-w-md w-full">
+        <p class="section-label text-white mb-0">
+          <span class="text-brand">/05</span> ABOUT
+        </p>
+        <h2 class="section-title text-white mt-4 mb-10">About us</h2>
+        <a href="#" class="flex items-stretch group cursor-pointer h-fit no-underline w-fit">
+          <div class="bg-brand px-8 py-4 text-black font-bold uppercase tracking-widest text-[16px] group-hover:bg-brand-hover transition-colors">
+            More about us
+          </div>
+          <div class="bg-brand border-l border-black/10 px-4 flex items-center justify-center group-hover:bg-brand-hover transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform duration-300">
+              <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </div>
+        </a>
+      </div>
     </div>
 
     <!-- Right: Image filling full column -->
@@ -32,14 +37,14 @@ import SectionLine from "../ui/SectionLine.astro";
       <img
         src="/images/abouttv.png"
         alt="About us"
-        class="absolute inset-0 w-full h-full object-cover grayscale brightness-75 transition-all duration-700 hover:grayscale-0 hover:brightness-100"
+        class="absolute inset-0 w-full h-full object-cover transition-all duration-700"
       />
     </div>
   </div>
 
   <!-- Bottom: Dark 3-column content -->
   <div class="bg-feature-card">
-    <Container class="py-20 px-4 lg:px-8">
+    <Container class="py-20">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
         <div class="flex flex-col gap-6 md:border-l md:border-white/10 md:pl-10">
           <p class="text-[15px] font-bold text-zinc-600 tracking-wider">/01</p>

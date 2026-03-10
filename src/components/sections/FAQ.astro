@@ -39,10 +39,10 @@ const faqs = [
 <section id="faq-section" class="relative mt-28 bg-background">
   <SectionLine />
 
-  <Container class="py-20 lg:py-32 px-4 lg:px-8">
+  <Container class="py-20 lg:py-32">
     <div class="flex flex-col lg:flex-row gap-0">
       <!-- Left Column -->
-      <div class="lg:w-[38%] flex flex-col justify-between lg:pr-8 lg:border-r lg:border-border">
+      <div class="lg:w-[413px] flex flex-col justify-between lg:border-r lg:border-border lg:pr-10 py-2">
         <div>
           <p class="section-label text-foreground">
             <span class="text-subtitle">/07</span> FAQ
@@ -54,21 +54,21 @@ const faqs = [
 
         <!-- Contact Card -->
         <div class="mt-12 lg:mt-auto">
-          <p class="section-subtitle text-foreground/80 mb-5 max-w-[280px] pl-4">
+          <p class="section-subtitle text-foreground/80 mb-5 max-w-[280px]">
             If you have still more questions why not contact us :)
           </p>
-          <div class="flex items-stretch gap-2.5 w-fit pl-4">
-            <div class="w-[90px] h-[90px] overflow-hidden shrink-0 bg-zinc-100">
+          <div class="flex items-stretch gap-[10px] w-full max-w-[413px] border border-[#E6E6E6] bg-white p-3">
+            <div class="w-[94px] h-[94px] overflow-hidden shrink-0 bg-zinc-100">
               <img
                 src="/mentors/abror.webp"
                 alt="Abror"
                 class="w-full h-full object-cover object-top"
               />
             </div>
-            <div class="flex flex-col gap-2.5 justify-between w-[200px]">
+            <div class="flex flex-col gap-2.5 justify-between flex-1">
               <a
                 href="#"
-                class="flex items-center justify-center gap-2 w-full h-[40px] bg-brand text-black text-[16px] font-medium hover:bg-brand/90 transition-colors"
+                class="flex items-center justify-center gap-2 w-full h-[41px] bg-brand text-black text-[14px] font-semibold hover:bg-brand/90 transition-colors"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"></path>
@@ -77,7 +77,7 @@ const faqs = [
               </a>
               <a
                 href="#"
-                class="flex items-center justify-center gap-2 w-full h-[40px] bg-black text-white text-[16px] font-medium hover:bg-zinc-800 transition-colors"
+                class="flex items-center justify-center gap-2 w-full h-[41px] bg-black text-white text-[14px] font-semibold hover:bg-zinc-800 transition-colors"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M22 2L11 13"></path>
@@ -90,8 +90,7 @@ const faqs = [
         </div>
       </div>
 
-      <!-- Right Column: Accordion -->
-      <div class="lg:w-[62%] lg:pl-8">
+      <div class="flex-1 lg:pl-5">
         <div id="faq-list" class="divide-y divide-border border-t border-border">
           {
             faqs.map((faq, index) => (
@@ -100,7 +99,7 @@ const faqs = [
                   class="faq-trigger w-full flex items-center justify-between gap-4 py-6 text-left group"
                   aria-expanded={index === 0 ? "true" : "false"}
                 >
-                  <span class="section-subtitle text-foreground leading-snug group-hover:text-foreground/80 transition-colors">
+                  <span class="text-[20px] font-semibold text-foreground leading-snug group-hover:text-foreground/80 transition-colors">
                     {faq.question}
                   </span>
                   <span class="faq-icon flex-shrink-0 w-8 h-8 flex items-center justify-center text-foreground transition-all duration-300">
@@ -118,7 +117,7 @@ const faqs = [
                   class="faq-content overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.23,1,0.32,1)]"
                   style={index === 0 ? "" : "height: 0;"}
                 >
-                  <p class="section-subtitle text-zinc-500 pb-6 max-w-2xl">
+                  <p class="text-[16px] font-medium text-zinc-500 pb-6 max-w-2xl leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>
