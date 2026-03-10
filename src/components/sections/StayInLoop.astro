@@ -27,21 +27,17 @@ const news = [
 <section class="relative mt-28 bg-background">
   <SectionLine />
 
-  <Container class="py-20 lg:py-32">
+  <Container class="py-20 lg:py-32 px-4 lg:px-8">
     <!-- Header Row -->
     <div class="flex items-end justify-between mb-12">
       <div>
-        <p class="section-label">
-          <span class="text-subtitle font-bold">/08</span> NEWS & EVENTS
+        <p class="section-label text-foreground">
+          <span class="text-subtitle">/08</span> NEWS & EVENTS
         </p>
-        <h2 class="section-title">
-          Stay in the loop
-        </h2>
+        <h2 class="section-title">Stay in the loop</h2>
       </div>
-
-      <!-- View All Button -->
       <a href="#" class="flex items-stretch group cursor-pointer h-fit no-underline shrink-0">
-        <div class="bg-brand px-8 py-4 text-black font-bold uppercase tracking-widest text-[13px] group-hover:bg-brand-hover transition-colors">
+        <div class="bg-brand px-8 py-4 text-black font-bold uppercase tracking-widest text-[16px] group-hover:bg-brand-hover transition-colors">
           View all
         </div>
         <div class="bg-brand border-l border-black/10 px-4 flex items-center justify-center group-hover:bg-brand-hover transition-colors">
@@ -54,10 +50,9 @@ const news = [
     </div>
 
     <!-- News Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {news.map((post) => (
         <a href="#" class="group no-underline flex flex-col bg-white border border-border overflow-hidden hover:shadow-lg transition-shadow duration-300">
-          <!-- Image -->
           <div class="w-full aspect-[4/3] overflow-hidden bg-zinc-100">
             <img
               src={post.image}
@@ -65,10 +60,7 @@ const news = [
               class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
             />
           </div>
-
-          <!-- Card Content -->
           <div class="p-5">
-            <!-- Meta Row -->
             <div class="flex items-center justify-between gap-4 mb-3">
               <span class="text-[11px] font-bold tracking-[0.15em] text-zinc-400 uppercase">
                 {post.category}
@@ -77,9 +69,7 @@ const news = [
                 {post.date}
               </span>
             </div>
-
-            <!-- Title -->
-            <h3 class="section-desc text-foreground group-hover:text-foreground/70 transition-colors leading-snug line-clamp-3">
+            <h3 class="section-subtitle text-foreground group-hover:text-foreground/70 transition-colors leading-snug line-clamp-3">
               {post.title}
             </h3>
           </div>

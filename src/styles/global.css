@@ -124,14 +124,19 @@
     --feature-card: #0a0a0a;
 
     /* Section Typography — change these to resize all sections at once */
-    --section-label-size: 13px;
-    --section-label-tracking: 0.2em;
-    --section-title-size: 56px;
-    --section-title-size-md: 50px;
-    --section-title-size-sm: 36px;
+    --section-label-size: 16px;
+    --section-label-tracking: 0.15em;
+    --title: 48px;
+    --section-title-size: var(--title);
+    --section-title-size-md: 42px;
+    --section-title-size-sm: 32px;
     --section-title-leading: 1.05;
+    --subtitle-size: 18px;
     --section-desc-size: 17px;
     --section-desc-leading: 1.6;
+    --btn-text: 16px;
+    --card-title-size: 20px;
+    --card-subtitle-size: 16px;
 }
 
 .dark {
@@ -178,7 +183,7 @@
 .section-label {
     font-size: var(--section-label-size);
     letter-spacing: var(--section-label-tracking);
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
 }
@@ -187,7 +192,7 @@
     font-size: var(--section-title-size-sm);
     line-height: var(--section-title-leading);
     font-family: var(--font-heading);
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: -0.02em;
 }
 
@@ -203,11 +208,35 @@
     }
 }
 
+.section-subtitle {
+    font-size: var(--subtitle-size);
+    line-height: 1.6;
+    font-weight: 500;
+    font-family: var(--font-sans);
+}
+
 .section-desc {
     font-size: var(--section-desc-size);
     line-height: var(--section-desc-leading);
     font-weight: 500;
     font-family: var(--font-sans);
+}
+
+/* Hero title override — 56px on desktop */
+.hero-title {
+    font-size: 36px;
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 46px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-title {
+        font-size: 56px;
+    }
 }
 
 @layer base {

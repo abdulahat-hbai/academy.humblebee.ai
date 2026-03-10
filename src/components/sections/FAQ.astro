@@ -39,30 +39,22 @@ const faqs = [
 <section id="faq-section" class="relative mt-28 bg-background">
   <SectionLine />
 
-  <Container class="py-20 lg:py-32">
+  <Container class="py-20 lg:py-32 px-4 lg:px-8">
     <div class="flex flex-col lg:flex-row gap-0">
       <!-- Left Column -->
-      <div
-        class="lg:w-[38%] flex flex-col justify-between lg:pr-8 lg:border-r lg:border-border"
-      >
+      <div class="lg:w-[38%] flex flex-col justify-between lg:pr-8 lg:border-r lg:border-border">
         <div>
-          <p
-            class="text-[13px] tracking-[0.2em] font-medium text-foreground uppercase mb-6"
-          >
-            <span class="text-subtitle font-bold">/07</span> FAQ
+          <p class="section-label text-foreground">
+            <span class="text-subtitle">/07</span> FAQ
           </p>
-          <h2
-            class="text-4xl md:text-5xl lg:text-[56px] leading-[1.05] font-heading font-medium tracking-tight text-foreground"
-          >
+          <h2 class="section-title text-foreground">
             Frequently asked questions
           </h2>
         </div>
 
         <!-- Contact Card -->
         <div class="mt-12 lg:mt-auto">
-          <p
-            class="text-[15px] font-inter text-foreground/80 mb-5 max-w-[280px] pl-4"
-          >
+          <p class="section-subtitle text-foreground/80 mb-5 max-w-[280px] pl-4">
             If you have still more questions why not contact us :)
           </p>
           <div class="flex items-stretch gap-2.5 w-fit pl-4">
@@ -76,34 +68,18 @@ const faqs = [
             <div class="flex flex-col gap-2.5 justify-between w-[200px]">
               <a
                 href="#"
-                class="flex items-center justify-center gap-2 w-full h-[40px] bg-brand text-black text-[13px] font-medium hover:bg-brand/90 transition-colors"
+                class="flex items-center justify-center gap-2 w-full h-[40px] bg-brand text-black text-[16px] font-medium hover:bg-brand/90 transition-colors"
               >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"
-                  ></path>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"></path>
                 </svg>
                 Book a 15 minute call
               </a>
               <a
                 href="#"
-                class="flex items-center justify-center gap-2 w-full h-[40px] bg-[#000000] text-white text-[13px] font-medium hover:bg-zinc-800 transition-colors"
+                class="flex items-center justify-center gap-2 w-full h-[40px] bg-black text-white text-[16px] font-medium hover:bg-zinc-800 transition-colors"
               >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M22 2L11 13"></path>
                   <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
                 </svg>
@@ -116,10 +92,7 @@ const faqs = [
 
       <!-- Right Column: Accordion -->
       <div class="lg:w-[62%] lg:pl-8">
-        <div
-          id="faq-list"
-          class="divide-y divide-border border-t border-border"
-        >
+        <div id="faq-list" class="divide-y divide-border border-t border-border">
           {
             faqs.map((faq, index) => (
               <div class="faq-item" data-index={index}>
@@ -127,31 +100,15 @@ const faqs = [
                   class="faq-trigger w-full flex items-center justify-between gap-4 py-6 text-left group"
                   aria-expanded={index === 0 ? "true" : "false"}
                 >
-                  <span class="text-[17px] md:text-[18px] font-medium text-foreground leading-snug group-hover:text-foreground/80 transition-colors">
+                  <span class="section-subtitle text-foreground leading-snug group-hover:text-foreground/80 transition-colors">
                     {faq.question}
                   </span>
                   <span class="faq-icon flex-shrink-0 w-8 h-8 flex items-center justify-center text-foreground transition-all duration-300">
-                    <svg
-                      class="faq-plus"
-                      width="14"
-                      height="14"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    >
+                    <svg class="faq-plus" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
                       <line x1="7" y1="1" x2="7" y2="13" />
                       <line x1="1" y1="7" x2="13" y2="7" />
                     </svg>
-                    <svg
-                      class="faq-minus hidden"
-                      width="14"
-                      height="14"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    >
+                    <svg class="faq-minus hidden" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
                       <line x1="2" y1="2" x2="12" y2="12" />
                       <line x1="12" y1="2" x2="2" y2="12" />
                     </svg>
@@ -161,7 +118,7 @@ const faqs = [
                   class="faq-content overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.23,1,0.32,1)]"
                   style={index === 0 ? "" : "height: 0;"}
                 >
-                  <p class="text-[15px] md:text-[16px] text-zinc-500 leading-relaxed pb-6 max-w-2xl">
+                  <p class="section-subtitle text-zinc-500 pb-6 max-w-2xl">
                     {faq.answer}
                   </p>
                 </div>
@@ -184,7 +141,6 @@ const faqs = [
       const plus = item.querySelector<SVGElement>(".faq-plus")!;
       const minus = item.querySelector<SVGElement>(".faq-minus")!;
 
-      // Open first by default
       if (index === 0) {
         content.style.height = content.scrollHeight + "px";
         plus.classList.add("hidden");
@@ -195,12 +151,9 @@ const faqs = [
       trigger.addEventListener("click", () => {
         const isOpen = trigger.getAttribute("aria-expanded") === "true";
 
-        // Close all
         items.forEach((otherItem) => {
-          const otherTrigger =
-            otherItem.querySelector<HTMLButtonElement>(".faq-trigger")!;
-          const otherContent =
-            otherItem.querySelector<HTMLDivElement>(".faq-content")!;
+          const otherTrigger = otherItem.querySelector<HTMLButtonElement>(".faq-trigger")!;
+          const otherContent = otherItem.querySelector<HTMLDivElement>(".faq-content")!;
           const otherPlus = otherItem.querySelector<SVGElement>(".faq-plus")!;
           const otherMinus = otherItem.querySelector<SVGElement>(".faq-minus")!;
           otherContent.style.height = "0";
@@ -209,7 +162,6 @@ const faqs = [
           otherMinus.classList.add("hidden");
         });
 
-        // Open clicked if it was closed
         if (!isOpen) {
           content.style.height = content.scrollHeight + "px";
           trigger.setAttribute("aria-expanded", "true");

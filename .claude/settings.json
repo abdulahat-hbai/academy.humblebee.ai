@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \":*)",
+      "Bash(/home/abdulahat/Documents/programming/in.academy-frontend/src/components/sections/Hero.astro:*)"
+    ]
+  }
+}
