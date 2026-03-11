@@ -39,10 +39,10 @@ const faqs = [
 <section id="faq-section" class="relative mt-28 bg-background">
   <SectionLine />
 
-  <Container class="py-20 lg:py-32">
-    <div class="flex flex-col lg:flex-row gap-0">
+  <Container class="lg:pt-32">
+    <div class="flex flex-col lg:flex-row gap-5">
       <!-- Left Column -->
-      <div class="lg:w-[413px] flex flex-col justify-between lg:border-r lg:border-border lg:pr-10 py-2">
+      <div class="lg:w-103.25 flex flex-col justify-between  lg:border-border ">
         <div>
           <p class="section-label text-foreground">
             <span class="text-subtitle">/07</span> FAQ
@@ -53,7 +53,7 @@ const faqs = [
         </div>
 
         <!-- Contact Card -->
-        <div class="mt-12 lg:mt-auto">
+        <div class="lg:mt-auto">
           <p class="section-subtitle text-foreground/80 mb-5 max-w-[280px]">
             If you have still more questions why not contact us :)
           </p>
@@ -89,16 +89,15 @@ const faqs = [
           </div>
         </div>
       </div>
-
-      <div class="flex-1 lg:pl-5">
+      <!-- Right Column -->
+      <div class="flex-1 lg:border-l lg:border-border">
         <div id="faq-list" class="divide-y divide-border border-t border-border">
           {
             faqs.map((faq, index) => (
-              <div class="faq-item" data-index={index}>
+              <div class="faq-item p-6" data-index={index}>
                 <button
-                  class="faq-trigger w-full flex items-center justify-between gap-4 py-6 text-left group"
-                  aria-expanded={index === 0 ? "true" : "false"}
-                >
+                  class="faq-trigger w-full flex items-center justify-between gap-4  text-left group"
+                  aria-expanded={index === 0 ? "true" : "false"}>
                   <span class="text-[20px] font-semibold text-foreground leading-snug group-hover:text-foreground/80 transition-colors">
                     {faq.question}
                   </span>
