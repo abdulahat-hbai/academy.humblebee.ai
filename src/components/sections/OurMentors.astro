@@ -7,19 +7,25 @@ const mentors = [
     img: "/mentors/juma.webp",
     name: "Jumabek Alikhanov",
     role: "Founder of HumbleBeeAI, PhD in Machine Learning with 10+ years of teaching and industry experience",
-    socials: { linkedin: "#", instagram: "#", github: "#" }
+    socials: { linkedin: "#",  github: "#" }
   },
   {
     img: "/mentors/oybek.webp",
     name: "Oyberk Eraliev",
     role: "PhD in AI and Machine Learning, 5+ years of teaching and industry experience. Expert in Neural Networks.",
-    socials: { linkedin: "#", instagram: "#", github: "#" }
+    socials: { linkedin: "#",  github: "#" }
+  },
+  {
+    img: "/mentors/seunghyun.webp",
+    name: "Seunghyun Ko",
+    role: "PhD in AI and Machine Learning, 5+ years of teaching and industry experience. Expert in Neural Networks.",
+    socials: { linkedin: "#",  github: "#" }
   },
   {
     img: "/mentors/valijon.webp",
     name: "Valijon Turakulov",
     role: "Lead Software Architect, specializing in high-performance distributed AI systems and edge computing.",
-    socials: { linkedin: "#", instagram: "#", github: "#" }
+    socials: { linkedin: "#",  github: "#" }
   },
   {
     img: "/mentors/jahongir.webp",
@@ -28,8 +34,8 @@ const mentors = [
     socials: { linkedin: "#", github: "#" }
   },
   {
-    img: "/mentors/sohibjon.webp",
-    name: "Sohibjon Baratov",
+    img: "/mentors/batkhuu.webp",
+    name: "Batkhuu Byambajav",
     role: "DevOps Engineer at HumbleBeeAI, 3+ years of experience in cloud infrastructure and scaling.",
     socials: { linkedin: "#", instagram: "#" }
   }
@@ -40,10 +46,10 @@ const mentors = [
   <SectionLine />
 
   <Container class="py-20 lg:py-30 relative">
-    <div class="flex flex-col lg:flex-row gap-0 lg:gap-16">
+    <div class="flex flex-col lg:flex-row gap-5">
 
       <!-- Left Column: Fixed Title Block -->
-      <div class="lg:w-[35%] flex flex-col justify-between min-h-112.5 relative z-30 bg-background lg:pr-12 md:pointer-events-none">
+      <div class="lg:w-[35%] flex flex-col justify-between min-h-112.5 max-lg:min-h-0 relative z-30 bg-background md:pointer-events-none">
         <!-- Background Mask to hide scroll behind -->
         <div class="absolute inset-y-0 -left-[50vw] right-0 bg-background z-[-1] hidden lg:block"></div>
 
@@ -56,7 +62,7 @@ const mentors = [
           </h2>
         </div>
 
-        <div class="mt-auto flex items-center justify-between lg:pr-4 bg-background py-8 pointer-events-auto">
+        <div class="mt-auto flex items-center justify-between bg-background  pointer-events-auto">
           <div class="text-[18px] font-sans font-medium text-foreground min-w-25">
             <span id="mentor-current">01</span> <span class="text-zinc-400">/ {mentors.length.toString().padStart(2, '0')}</span>
           </div>
@@ -81,34 +87,31 @@ const mentors = [
         <div id="mentors-track-viewport" class="overflow-hidden">
           <div id="mentors-track" class="flex gap-5 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] items-start">
             {mentors.map((mentor, index) => (
-              <div
-                class={`mentor-card shrink-0 flex flex-col bg-white border border-border transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] overflow-hidden ${index === 0 ? 'active' : ''}`}
-                data-index={index}
-              >
+              <div class={`mentor-card w-80 md:w-71.25 h-140 flex-none cursor-pointer relative shrink-0 flex flex-col bg-white border border-border transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] overflow-hidden ${index === 0 ? 'active' : ''}`} data-index={index}>
                 <!-- Image Container -->
-                <div class="mentor-image-wrapper transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] overflow-hidden bg-zinc-50 shrink-0 relative">
+                <div class="mentor-image-wrapper  h-full transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] overflow-hidden bg-zinc-50 relative">
                   <img
                     src={mentor.img}
                     alt={mentor.name}
-                    class="absolute inset-0 w-full h-full object-cover object-top transition-all duration-700 ease-out mentor-img"
+                    class="inset-0 w-full h-full object-cover object-top transition-all duration-700 ease-out mentor-img"
                   />
                 </div>
 
                 <!-- Info Container -->
-                <div class="info-box transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] bg-white relative z-10">
-                  <h3 class="mentor-name font-semibold font-heading text-foreground leading-tight transition-all duration-500">
+                <div class="bg-white absolute  bottom-0 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ">
+                  <h3 class="h-12 mentor-name text-[20px] flex items-center justify-center font-semibold font-heading text-foreground leading-tight transition-all duration-500">
                     {mentor.name}
                   </h3>
 
-                  <div class="mentor-details">
-                    <p class="text-[16px] text-zinc-500 font-sans font-medium leading-relaxed">
+                  <div class="mentor-details ">
+                    <p>
                       {mentor.role}
                     </p>
                   </div>
 
                   <!-- Bottom Bar -->
                   <div class="mentor-footer">
-                    <div class="flex items-center gap-6 pt-3 border-t border-zinc-100">
+                    <div class="flex items-center gap-4 p-3 border-t border-zinc-100">
                       <span class="text-zinc-200 text-[11px] font-bold tracking-[0.3em] uppercase mr-auto">// MENTOR</span>
                       {mentor.socials.linkedin && (
                         <a href={mentor.socials.linkedin} target="_blank" class="text-zinc-400 hover:text-brand transition-colors">
@@ -137,37 +140,11 @@ const mentors = [
   </Container>
 
   <style>
-    /* All cards — same fixed width */
-    .mentor-card {
-      width: 240px;
-      flex: 0 0 auto;
-      cursor: pointer;
-      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .mentor-image-wrapper {
-      padding-top: 120%;
-      transition: padding-top 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .info-box {
-      padding: 16px 16px 18px;
-      transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .mentor-card.active .info-box {
-      transform: translateY(-40px);
-      box-shadow: 0 -10px 30px rgba(0,0,0,0.08);
-    }
-
-    .mentor-name {
-      font-size: 20px;
-      text-align: center;
-    }
-
-    /* Details & footer hidden on inactive */
+    /* Details & footer hidden on inactive (needed for active toggle animation) */
     .mentor-details {
+      transform: translateY(5%);
       max-height: 0;
+      text-align: center;
       opacity: 0;
       overflow: hidden;
       transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1),
@@ -186,55 +163,28 @@ const mentors = [
       margin-top: 0;
     }
 
-    /* Active — same width, only content expands */
-    .mentor-card.active {
-      border-bottom: 4px solid var(--brand, #facc15);
-    }
-
-    .mentor-card.active .mentor-image-wrapper {
-      padding-top: 100%;
-    }
+    /* Active states */
 
     .mentor-card.active .mentor-name {
       font-size: 20px;
       font-weight: 700;
-      text-align: left;
+      text-align: center;
     }
 
     .mentor-card.active .mentor-details {
       max-height: 220px;
       opacity: 1;
-      margin-top: 10px;
+      margin: 8px;
     }
 
     .mentor-card.active .mentor-footer {
       max-height: 80px;
       opacity: 1;
-      margin-top: 12px;
+      margin-bottom: 32px;
     }
 
     .mentor-card.active .mentor-img {
       transform: scale(1.03);
-    }
-
-    @media (min-width: 1024px) {
-      #mentors-track-viewport {
-        margin-left: -100px;
-        padding-left: 100px;
-      }
-    }
-
-    @media (max-width: 1023px) {
-      .mentor-card {
-        width: 65vw;
-        max-width: 260px;
-      }
-      #mentors-track-viewport {
-        overflow: hidden;
-      }
-      .lg\:w-\[35\%\] {
-        min-height: auto;
-      }
     }
   </style>
 
