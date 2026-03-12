@@ -1,126 +1,133 @@
 ---
 import { roadmap } from "../../data/roadmapdata";
+import Container from "../layout/Container.astro";
 ---
 
-<div class="grid lg:grid-cols-2 bg-black w-full overflow-hidden min-h-[850px]" id="roadmap-interactive">
+<div class="relative w-full overflow-hidden min-h-[850px] bg-black flex flex-col" id="roadmap-interactive">
 
-  <!-- LEFT COLUMN (Black) -->
-  <div class="flex flex-col bg-black border-r border-white/5 relative overflow-hidden">
-    <div class="w-full h-full flex flex-col items-end">
-      <!-- Container-aligned inner box (Left side = half container) -->
-      <div class="w-full max-w-160 pl-4 pr-8 lg:pr-12 h-full flex flex-col pt-20 lg:pt-28 pb-20 lg:pb-28">
-        <!-- Top Text Content -->
-        <div class="mb-16">
-          <p class="section-label text-white flex items-center gap-1.5">
-            <span class="text-white/40">/02</span> ROADMAP
-          </p>
-          <h2 class="section-title text-white mb-8">
-            Talent roadmap
-          </h2>
-          <p class="section-subtitle text-zinc-400 max-w-xl">
-            HumbleBeeAI Academy is a full-time, offline program (40 hours/week) designed to turn committed learners into market-standard engineers. Progress is earned through shipped work, mentor review, documentation, and consistent execution over time - not by "finishing lessons".
-          </p>
-        </div>
+  <!-- FULL-BLEED BACKGROUND LAYERS (Now constrained to container's vertical lines) -->
+  <Container class="absolute inset-x-0 inset-y-0 pointer-events-none z-0 overflow-hidden">
+    <div class="hidden lg:grid grid-cols-2 h-full">
+      <div class="bg-black border-r border-white/5 h-full"></div>
+      <div class="relative h-full overflow-hidden bg-[#0a0a0a]">
+        <img
+          src="/images/compass.webp"
+          alt="Compass"
+          class="w-full h-full object-cover grayscale brightness-110 contrast-120 object-center"
+        />
+        <!-- Halftone Dot Overlay -->
+        <div class="absolute inset-0 opacity-[0.12] halftone-dots bg-black/10"></div>
+      </div>
+    </div>
+  </Container>
 
-        <!-- Interactive Tabs List -->
-        <div class="flex flex-col border-t border-white/10 mt-auto">
-          {roadmap.map((item, index) => (
-            <button
-              type="button"
-              data-roadmap-tab={index}
+  <!-- CONTENT LAYER (Constrained strictly to dynamic Container) -->
+  <Container class="relative z-10 flex-1 flex flex-col lg:grid lg:grid-cols-2 p-0 h-full">
+    
+    <!-- LEFT COLUMN CONTENT -->
+    <div class="w-full h-full flex flex-col pt-20 lg:pt-28 pb-20 lg:pb-28 px-4 lg:px-0 lg:pr-12 bg-black lg:bg-transparent z-10 relative">
+      <!-- Top Text Content -->
+      <div class="mb-16">
+        <p class="section-label text-white flex items-center gap-1.5">
+          <span class="text-white/40">/02</span> ROADMAP
+        </p>
+        <h2 class="section-title text-white mb-8">
+          Talent roadmap
+        </h2>
+        <p class="section-subtitle text-zinc-400 max-w-xl">
+          HumbleBeeAI Academy is a full-time, offline program (40 hours/week) designed to turn committed learners into market-standard engineers. Progress is earned through shipped work, mentor review, documentation, and consistent execution over time - not by "finishing lessons".
+        </p>
+      </div>
+
+      <!-- Interactive Tabs List -->
+      <div class="flex flex-col border-t border-white/10 mt-auto">
+        {roadmap.map((item, index) => (
+          <button
+            type="button"
+            data-roadmap-tab={index}
+            class:list={[
+              "group py-8 px-4 lg:px-8 border-b border-white/10 cursor-pointer transition-all duration-500 flex items-center gap-3 text-left relative overflow-hidden",
+              index === 0 ? "text-white" : "text-zinc-600 hover:bg-white/[0.02]"
+            ]}
+          >
+            <!-- Active Indicator Light (left edge) -->
+            <div 
               class:list={[
-                "group py-8 px-8 border-b border-white/10 cursor-pointer transition-all duration-500 flex items-center gap-3 text-left relative overflow-hidden",
-                index === 0 ? "text-white" : "text-zinc-600 hover:bg-white/[0.02]"
+                "absolute left-0 top-0 bottom-0 w-[4px] bg-brand transition-transform duration-500 origin-top",
+                index === 0 ? "scale-y-100" : "scale-y-0"
               ]}
-            >
-              <!-- Active Indicator Light (left edge) -->
-              <div 
+            />
+
+            <!-- Icon -->
+            <div class="w-6 h-6 flex justify-center items-center shrink-0">
+              <div
                 class:list={[
-                  "absolute left-0 top-0 bottom-0 w-[4px] bg-brand transition-transform duration-500 origin-top",
-                  index === 0 ? "scale-y-100" : "scale-y-0"
+                  "w-5 h-5 transition-all duration-500",
+                  index === 0 ? "bg-brand scale-110" : "bg-zinc-700 group-hover:bg-zinc-500"
                 ]}
+                style="mask-image: url(/iconwhy.png); -webkit-mask-image: url(/iconwhy.png); mask-size: contain; -webkit-mask-size: contain; mask-repeat: no-repeat; -webkit-mask-repeat: no-repeat;"
               />
-
-              <!-- Icon (Custom square block) -->
-              <div class="w-6 h-6 flex justify-center items-center shrink-0">
-                <div
-                  class:list={[
-                    "w-5 h-5 transition-all duration-500",
-                    index === 0 ? "bg-brand scale-110" : "bg-zinc-700 group-hover:bg-zinc-500"
-                  ]}
-                  style="mask-image: url(/iconwhy.png); -webkit-mask-image: url(/iconwhy.png); mask-size: contain; -webkit-mask-size: contain; mask-repeat: no-repeat; -webkit-mask-repeat: no-repeat;"
-                />
-              </div>
-
-              <!-- Tab Title -->
-              <h4 class="text-[20px] font-medium transition-colors duration-500">
-                {item.title}
-              </h4>
-            </button>
-          ))}
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- RIGHT COLUMN (Full-bleed image bg + panel at bottom) -->
-  <div class="relative flex flex-col bg-[#0a0a0a]">
-
-    <!-- Full-bleed compass image as background -->
-    <div class="absolute inset-0 overflow-hidden">
-      <img
-        src="/images/compass.webp"
-        alt="Compass"
-        class="w-full h-full object-cover grayscale brightness-110 contrast-120 object-center"
-      />
-      <!-- Halftone Dot Overlay -->
-      <div class="absolute inset-0 opacity-[0.12] pointer-events-none halftone-dots"></div>
-      <!-- Dark gradient from bottom to make text readable -->
-      <div class="absolute inset-0 bg-linear-to-t from-[#0a0a0a] via-[#0a0a0a]/70 to-transparent"></div>
-    </div>
-
-    <!-- Content aligned to container, pushed to bottom -->
-    <div class="relative z-10 w-full h-full flex flex-col items-start">
-      <div class="w-full max-w-160 pr-4 flex flex-col h-full">
-        <!-- Spacer pushes panel to bottom -->
-        <div class="flex-1"></div>
-
-        <!-- TAB PANEL CONTENT BOX -->
-        <div class="p-8 flex flex-col gap-6">
-          {roadmap.map((item, index) => (
-            <div data-roadmap-panel={index} class:list={[index === 0 ? "opacity-100 translate-y-0" : "hidden opacity-0 translate-y-4", "transition-all duration-700"]}>
-
-              <!-- Panel Header -->
-              <div class="mb-8">
-                <p class="text-[15px] font-bold text-zinc-500 mb-4 tracking-[0.2em]">{`/0${index + 1}`}</p>
-                <div class="w-16 h-[2.5px] bg-brand" />
-              </div>
-
-              <!-- Panel Description (Dynamic) -->
-              <div class="text-[16px] text-zinc-300 leading-[1.7] mb-10 font-sans font-medium">
-                {Array.isArray(item.description)
-                  ? item.description.map((desc) => <p class="mb-4 last:mb-0">{desc}</p>)
-                  : <p>{item.description}</p>
-                }
-              </div>
-
-              <!-- Button (Figma Style) -->
-              <button class="flex items-stretch group cursor-pointer w-fit h-fit">
-                <div class="bg-brand px-8 py-4 text-black font-bold uppercase tracking-widest text-[16px] group-hover:bg-brand-hover transition-colors">
-                  Learn more
-                </div>
-                <div class="bg-brand border-l border-black/10 px-5 flex items-center justify-center group-hover:bg-brand-hover transition-colors">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
-                    <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-                  </svg>
-                </div>
-              </button>
             </div>
-          ))}
-        </div>
+
+            <h4 class="text-[20px] font-medium transition-colors duration-500">
+              {item.title}
+            </h4>
+          </button>
+        ))}
       </div>
     </div>
-  </div>
+
+    <!-- RIGHT COLUMN CONTENT -->
+    <div class="w-full flex flex-col items-start relative min-h-[600px] lg:min-h-[850px] z-10 px-4 lg:px-0">
+      
+      <!-- Mobile BG (hidden on desktop) -->
+      <div class="lg:hidden absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <img
+          src="/images/compass.webp"
+          alt="Compass"
+          class="w-full h-full object-cover grayscale brightness-110 contrast-120 object-center"
+        />
+        <div class="absolute inset-0 opacity-[0.12] halftone-dots"></div>
+      </div>
+
+      <!-- Spacer pushes panel to bottom -->
+      <div class="flex-1 relative z-10 w-full min-h-[100px] lg:min-h-auto"></div>
+
+      <!-- TAB PANEL CONTENT BOX (With dynamic width matching container and dark opacity) -->
+      <div class="relative z-10 w-full bg-[#111111]/85 backdrop-blur-[8px] p-8 lg:p-12 mb-8 lg:mb-0 lg:pb-16 flex flex-col gap-6 shadow-2xl">
+        {roadmap.map((item, index) => (
+          <div data-roadmap-panel={index} class:list={[index === 0 ? "opacity-100 translate-y-0" : "hidden opacity-0 translate-y-4", "transition-all duration-700"]}>
+
+            <!-- Panel Header -->
+            <div class="mb-8">
+              <p class="text-[15px] font-bold text-zinc-500 mb-4 tracking-[0.2em]">{`/0${index + 1}`}</p>
+              <div class="w-16 h-[2.5px] bg-brand" />
+            </div>
+
+            <!-- Panel Description -->
+            <div class="text-[16px] text-zinc-300 leading-[1.7] mb-10 font-sans font-medium">
+              {Array.isArray(item.description)
+                ? item.description.map((desc) => <p class="mb-4 last:mb-0">{desc}</p>)
+                : <p>{item.description}</p>
+              }
+            </div>
+
+            <!-- Button -->
+            <button class="flex items-stretch group cursor-pointer w-fit h-fit">
+              <div class="bg-brand px-8 py-4 text-black font-bold uppercase tracking-widest text-[16px] group-hover:bg-brand-hover transition-colors">
+                Learn more
+              </div>
+              <div class="bg-brand border-l border-black/10 px-5 flex items-center justify-center group-hover:bg-brand-hover transition-colors">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
+                  <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Container>
 
   <style>
     /* Senior Halftone Dot Pattern */
