@@ -1,0 +1,109 @@
+---
+import Container from "@/components/layout/Container.astro";
+import { ShieldCheck, FileText, Share2, Settings, Check } from "lucide-react";
+---
+
+<section class="py-24 bg-white border-t border-zinc-100">
+  <Container>
+    <!-- Header -->
+    <div class="flex flex-col lg:flex-row justify-between items-start gap-12 mb-16">
+      <div class="lg:w-3/5">
+        <p class="section-label !mb-6 text-zinc-400">
+          <span class="text-zinc-500">/04</span> OPERATIONAL BACKBONE
+        </p>
+        <h2 class="section-title text-black font-semibold !text-[48px] !leading-[1.1]">
+          Operational accountability &<br />
+          talent tracking (HStaff)
+        </h2>
+      </div>
+      <div class="lg:w-[35%] lg:pt-14">
+        <p class="section-subtitle text-zinc-600">
+          Mentorship and project-based learning only work when discipline, accountability, and visibility are enforced at a system level.
+        </p>
+      </div>
+    </div>
+
+    <!-- Two Main Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      <!-- Card 1 -->
+      <div class="flex flex-col border border-zinc-100 shadow-sm bg-white">
+        <!-- Card Header -->
+        <div class="bg-black p-6 flex items-center gap-4">
+          <ShieldCheck className="text-brand" size={24} />
+          <h3 class="text-white text-[18px] font-semibold tracking-tight">Engineering-grade operational layer</h3>
+        </div>
+        
+        <!-- Card Body -->
+        <div class="p-8 flex flex-col gap-6">
+          <p class="text-[15px] font-medium text-zinc-600 leading-relaxed">
+            To ensure this, HumbleBeeAI Academy operates on top of HStaff — an internal operational system built specifically for talent training, mentorship coordination, and performance tracking.
+          </p>
+          <p class="text-[15px] font-medium text-zinc-600 leading-relaxed pb-4">
+            HStaff is not a classroom tool. It creates a continuous operational trail of a learner's journey — not snapshots or end-of-program summaries.
+          </p>
+
+          <!-- List Box -->
+          <div class="bg-[#F9F9F9] p-6 flex flex-col gap-5 border border-zinc-100/50">
+            <h4 class="text-black font-semibold text-[16px] border-b border-zinc-200 pb-4">Clear, auditable structure</h4>
+            <div class="flex flex-col gap-4">
+               {[
+                "Who is mentoring whom",
+                "Daily attendance and participation",
+                "Work logs, progress updates, and planning",
+                "Mentor-mentee interaction history",
+                "Evaluation inputs for verification"
+               ].map((item) => (
+                 <div class="flex items-center gap-3">
+                    <div class="bg-black rounded-full h-4 w-4 flex items-center justify-center shrink-0">
+                      <Check className="text-white" size={10} strokeWidth={4} />
+                    </div>
+                    <span class="text-[14px] font-medium text-zinc-600">{item}</span>
+                 </div>
+               ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="flex flex-col border border-zinc-100 shadow-sm bg-white">
+        <!-- Card Header -->
+        <div class="bg-black p-6 flex items-center gap-4">
+          <FileText className="text-brand" size={24} />
+          <h3 class="text-white text-[18px] font-semibold tracking-tight">Longitudinal evidence</h3>
+        </div>
+        
+        <!-- Card Body -->
+        <div class="p-8 flex flex-col gap-8">
+          <p class="text-[15px] font-medium text-zinc-600 leading-relaxed pb-2">
+            This enables HumbleBeeAI to enforce discipline consistently, maintain low mentor-to-mentee ratios, and track real engagement, not just completion.
+          </p>
+
+          <!-- Feature Box 1 -->
+          <div class="bg-[#F9F9F9] p-6 flex flex-col gap-3 border border-zinc-100/50">
+            <div class="flex items-center gap-3 mb-1">
+              <Share2 className="text-black" size={20} strokeWidth={2.5} />
+              <h4 class="text-black font-semibold text-[16px]">Single source of truth</h4>
+            </div>
+            <p class="text-[14px] font-medium text-zinc-500 leading-relaxed pl-8">
+              HStaff serves as the source for downstream evaluation. Structured cycle reports and historical data flow into our internal systems where growth trajectory is assessed over time.
+            </p>
+          </div>
+
+          <!-- Feature Box 2 -->
+          <div class="bg-[#F9F9F9] p-6 flex flex-col gap-3 border border-zinc-100/50">
+            <div class="flex items-center gap-3 mb-1">
+              <Settings className="text-black" size={20} strokeWidth={2.5} />
+              <h4 class="text-black font-semibold text-[16px]">Real operational readiness</h4>
+            </div>
+            <p class="text-[14px] font-medium text-zinc-500 leading-relaxed pl-8">
+              The outcome is system-backed evidence of capability and discipline. This ensures mentorship is not symbolic and every graduate reflects real readiness.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </Container>
+</section>

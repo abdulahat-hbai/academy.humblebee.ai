@@ -1,0 +1,126 @@
+---
+import Container from "@/components/layout/Container.astro";
+import { Check, Calendar, Puzzle, IdCard, Target, User, Trophy } from "lucide-react";
+---
+
+<section class="py-24 bg-white border-t border-zinc-100">
+  <Container>
+    <!-- Header -->
+    <div class="flex flex-col lg:flex-row justify-between items-start gap-12 mb-16">
+      <div class="lg:w-1/2">
+        <p class="section-label !mb-6 text-zinc-400">
+          <span class="text-zinc-500">/03</span> THE HUMBLEBEEAI DIFFERENCE
+        </p>
+        <h2 class="section-title text-black font-semibold !text-[48px] !leading-[1.1] max-w-xl">
+          Real Expertise Through Action
+        </h2>
+      </div>
+      <div class="lg:w-[45%] lg:pt-14">
+        <p class="section-subtitle text-zinc-600">
+          Unlike traditional universities or standardized bootcamps, we offer a specialized, mentor-driven environment where you work on practical projects.
+        </p>
+      </div>
+    </div>
+
+    <!-- Triple Column Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Card 1: Personalized -->
+      <div class="flex flex-col bg-[#F9F9F9]">
+        <div class="bg-black p-6 flex items-center gap-4">
+          <IdCard className="text-brand" size={24} />
+          <h3 class="text-white text-[18px] font-semibold tracking-tight">Personalized & outcome-driven</h3>
+        </div>
+        <div class="p-8 flex flex-col gap-10">
+          <div class="flex gap-4">
+            <div class="bg-black rounded-full h-5 w-5 flex items-center justify-center shrink-0 mt-0.5">
+              <Check className="text-white" size={12} strokeWidth={4} />
+            </div>
+            <p class="text-[15px] font-medium text-zinc-600 leading-relaxed">
+              Apply theory immediately through real or simulated projects rather than passive lessons.
+            </p>
+          </div>
+          <div class="flex gap-4">
+            <div class="bg-black rounded-full h-5 w-5 flex items-center justify-center shrink-0 mt-0.5">
+              <Check className="text-white" size={12} strokeWidth={4} />
+            </div>
+            <p class="text-[15px] font-medium text-zinc-600 leading-relaxed">
+              Receive tailored feedback from mentors who supervise only a few mentees at a time.
+            </p>
+          </div>
+          <div class="flex gap-4">
+            <div class="bg-black rounded-full h-5 w-5 flex items-center justify-center shrink-0 mt-0.5">
+              <Check className="text-white" size={12} strokeWidth={4} />
+            </div>
+            <p class="text-[15px] font-medium text-zinc-600 leading-relaxed">
+              Build a credible professional portfolio aligned with real business problems and production standards.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Daily mentor-mentee -->
+      <div class="flex flex-col bg-[#F9F9F9]">
+        <div class="bg-black p-6 flex items-center gap-4">
+          <Calendar className="text-brand" size={24} />
+          <h3 class="text-white text-[18px] font-semibold tracking-tight">Daily mentor-mentee model</h3>
+        </div>
+        <div class="p-8 flex flex-col gap-8">
+          <p class="text-[15px] font-medium text-zinc-600 leading-relaxed mb-2">
+            This learning model is enforced through a daily collaboration system that mirrors how real AI engineering teams operate.
+          </p>
+          
+          <div class="bg-white p-5 border border-zinc-100 shadow-sm transition-transform hover:scale-[1.02]">
+            <h4 class="text-black font-semibold text-[16px] mb-1">Micro-groups</h4>
+            <p class="text-zinc-500 text-[14px]">Max 6 mentees per mentor. Typical 1-2.</p>
+          </div>
+
+          <div class="bg-white p-5 border border-zinc-100 shadow-sm transition-transform hover:scale-[1.02]">
+            <h4 class="text-black font-semibold text-[16px] mb-1">Daily Syncs</h4>
+            <p class="text-zinc-500 text-[14px]">Mandatory stand-ups: Done, Blocked, Next.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: How mentorship works -->
+      <div class="flex flex-col bg-[#F9F9F9]">
+        <div class="bg-black p-6 flex items-center gap-4">
+          <Puzzle className="text-brand" size={24} />
+          <h3 class="text-white text-[18px] font-semibold tracking-tight">How mentorship works (operationally)</h3>
+        </div>
+        <div class="p-8 flex flex-col gap-10">
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-3">
+              <Target className="text-black" size={20} strokeWidth={2.5} />
+              <h4 class="text-black font-semibold text-[16px]">Continuous, not occasional</h4>
+            </div>
+            <p class="text-[14px] font-medium text-zinc-500 leading-relaxed">
+              Mentorship is not a weekly check-in. It's a daily operational rhythm. Mentors and mentees work in the same project context, enabling fast feedback.
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-3">
+              <User className="text-black" size={20} strokeWidth={2.5} />
+              <h4 class="text-black font-semibold text-[16px]">Active responsibility</h4>
+            </div>
+            <p class="text-[14px] font-medium text-zinc-500 leading-relaxed">
+              It is the mentee's responsibility to ask questions and raise blockers. Mentors guide and enforce standards, but do not chase inactive mentees.
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-3">
+              <Trophy className="text-black" size={20} strokeWidth={2.5} />
+              <h4 class="text-black font-semibold text-[16px]">Mandatory duties</h4>
+            </div>
+            <p class="text-[14px] font-medium text-zinc-500 leading-relaxed">
+              Daily check-ins are non-optional. Mentors are accountable for enforcing discipline, progress validation, and professional standards everyday.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </Container>
+</section>
