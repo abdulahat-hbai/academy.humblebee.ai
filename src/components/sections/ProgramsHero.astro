@@ -1,0 +1,154 @@
+---
+import Container from "@/components/layout/Container.astro";
+import SectionLine from "@/components/ui/SectionLine.astro";
+
+const steps = [
+  {
+    title: "Engineering fundamentals",
+    role: "BEGINNER",
+    barColor: "from-[#262626] to-[#404040]",
+    height: "h-[70px]",
+    circleBottom: "bottom-[102px]",
+    borderColor: "border-[#1A1A1A] bg-[#121212]/90", // Even darker, no white line
+    roleBg: "bg-black",
+    textClass: "text-white",
+    roleText: "text-white",
+    hasTopLine: true
+  },
+  {
+    title: "Soft landing",
+    role: "LEARNING",
+    barColor: "from-[#333333] to-[#595959]",
+    height: "h-[188px]",
+    circleBottom: "bottom-[220px]",
+    borderColor: "border-white bg-[#121212]/90", // White line border
+    roleBg: "bg-black",
+    textClass: "text-white",
+    roleText: "text-white",
+    hasTopLine: true
+  },
+  {
+    title: "Foundation",
+    role: "ADVANCING",
+    barColor: "from-black to-brand",
+    height: "h-[310px]",
+    circleBottom: "bottom-[342px]",
+    borderColor: "border-brand/40 bg-[#121212]/90",
+    roleBg: "bg-black",
+    textClass: "text-white",
+    roleText: "text-white"
+  },
+  {
+    title: "Growth-3",
+    role: "TOP 1%",
+    barColor: "from-white to-brand",
+    height: "h-[428px]",
+    circleBottom: "bottom-[460px]",
+    borderColor: "gradient-border-growth", // Custom gradient class
+    roleBg: "bg-black",
+    textClass: "bg-gradient-to-r from-brand to-white bg-clip-text text-transparent",
+    roleText: "text-white"
+  }
+];
+---
+
+<section class="relative min-h-[90vh] bg-[#0A0A0A] overflow-hidden flex flex-col">
+  <SectionLine />
+  
+  <!-- Background Layers -->
+  <div class="absolute inset-0 z-0">
+    <!-- The Dotted Image -->
+    <img src="/footer.webp" alt="" class="w-full h-full object-cover opacity-30" />
+    <!-- Gradient Overlay: Top to Bottom -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A]/80"></div>
+  </div>
+
+  <Container class="relative z-10 flex-1 flex flex-col pt-32 pb-0">
+    <!-- Top Content -->
+    <div class="w-full max-w-2xl mb-20 lg:mb-0">
+      <div class="flex justify-start mb-6">
+        <p class="section-label !mb-0 text-zinc-400 tracking-tight">
+          <span class="text-zinc-500">/00</span> BUILT FOR SERIOUS BUILDERS
+        </p>
+      </div>
+      
+      <h1 class="section-title text-white hero-title font-semibold mb-8 !leading-[1.1]">
+        Become a TOP 1%<br />
+        AI Engineer
+      </h1>
+      
+      <p class="section-subtitle text-zinc-400 mb-10 max-w-lg leading-relaxed">
+        Bridge the gap from theory to capability. We don't just teach modules; we forge professional engineers.
+      </p>
+
+      <!-- Button Pattern -->
+      <a href="#" class="flex items-stretch group cursor-pointer h-fit no-underline w-fit">
+        <div class="bg-brand px-8 py-4 text-black font-bold uppercase tracking-widest text-[16px] group-hover:bg-brand-hover transition-colors">
+          Begin your journey
+        </div>
+        <div class="bg-brand border-l border-black/10 px-4 flex items-center justify-center group-hover:bg-brand-hover transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform duration-300">
+            <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- Visual Journey: Bars and Circles in one relative container -->
+    <div class="w-full mt-auto flex items-end justify-between gap-12 relative h-[500px]">
+      {steps.map((step) => (
+        <div class="relative flex-1 flex flex-col items-center group">
+           <!-- Circle -->
+           <div class:list={[
+             "absolute w-[100px] h-[100px] md:w-[138px] md:h-[138px] rounded-full border flex flex-col items-center justify-center text-center p-3 z-20 backdrop-blur-md transition-all duration-300",
+             step.circleBottom,
+             step.borderColor
+           ]}>
+             <img src="/iconwhy.webp" alt="" class="w-6 h-6 mb-2 brightness-0 invert" />
+             <span class:list={["text-[14px] md:text-[16px] font-semibold leading-[1.2]", step.textClass]}>{step.title}</span>
+             <div class:list={["mt-2 px-3 py-0.5 rounded-full border-none", step.roleBg]}>
+               <span class:list={["text-[10px] md:text-[12px] font-semibold tracking-wider", step.roleText]}>{step.role}</span>
+             </div>
+           </div>
+           
+           <!-- Bar -->
+           <div class:list={[
+             "bg-gradient-to-t border-x border-white/5",
+             "w-full lg:w-[284px]",
+             step.hasTopLine ? "border-t border-white" : "border-t border-white/10",
+             step.barColor,
+             step.height
+           ]}></div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .hero-title {
+    font-size: 56px;
+  }
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 36px;
+    }
+  }
+</style>
+
+
+
+<style>
+  /* Extra polish for gradients and shadows */
+  .section-title {
+    line-height: 1.1;
+  }
+  
+  /* Gradient border for the 4th circle */
+  .gradient-border-growth {
+    border-color: transparent !important;
+    background-image: linear-gradient(#121212, #121212), linear-gradient(to right, #FACC15, #ffffff);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+</style>

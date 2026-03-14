@@ -1,0 +1,57 @@
+---
+import Container from "@/components/layout/Container.astro";
+
+const values = [
+  {
+    title: "Learning by doing",
+    description: "Real expertise is built through action. Our proprietary framework immerses you in solving real problems from the start, accelerating your ability to create value.",
+    image: "/images/acdemy/learnign.webp"
+  },
+  {
+    title: "Verified capability",
+    description: "We treat verification as a first-class system. Your journey is recorded in work logs, real project contributions, and long-term performance tracking.",
+    image: "/images/acdemy/veriefed.webp"
+  },
+  {
+    title: "Daily mentorship",
+    description: "Mentorship is continuous and operational. Daily stand-ups and a max 6:1 mentee-to-mentor ratio ensure you are never learning alone.",
+    image: "/images/acdemy/dailiymentor.webp"
+  }
+];
+---
+
+<section class="py-24 bg-white border-t border-zinc-100">
+  <Container>
+    <!-- Header -->
+    <div class="flex flex-col lg:flex-row justify-between items-start gap-12 mb-16">
+      <div class="lg:w-1/2">
+        <p class="section-label !mb-6 text-zinc-400">
+          <span class="text-zinc-500">/02</span> THE HUMBLEBEEAI ACADEMY
+        </p>
+        <h2 class="section-title text-black font-semibold !text-[48px] !leading-[1.1] max-w-xl">
+          From aspiring learner to industry-ready professional
+        </h2>
+      </div>
+      <div class="lg:w-[45%] lg:pt-14">
+        <p class="section-subtitle text-zinc-600">
+          We solve the gap between academic theory and real-world application. Our programs transform your theoretical knowledge into practical, industry-ready expertise through a structured, hands-on learning journey equipped with skills, experience, and mentorship.
+        </p>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-[20px]">
+      {values.map((item) => (
+        <div class="flex flex-col">
+          <div class="w-full max-w-[410px] h-[460px] overflow-hidden mb-4">
+            <img src={item.image} alt={item.title} class="w-full h-full object-cover grayscale transition-all duration-700 hover:grayscale-0" />
+          </div>
+          <h3 class="text-[24px] font-semibold text-black mb-4 tracking-tight">{item.title}</h3>
+          <p class="text-[16px] font-medium text-zinc-500 leading-relaxed">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

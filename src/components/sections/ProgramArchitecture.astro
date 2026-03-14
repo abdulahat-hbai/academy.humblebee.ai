@@ -1,0 +1,177 @@
+---
+import Container from "@/components/layout/Container.astro";
+import { MoveUpRight, Diamond, User, Trophy, ArrowRight, CircleDollarSign } from "lucide-react";
+
+const programs = [
+  {
+    title: "Engineering Fundamentals",
+    badge: "ACADEMY",
+    description: '"Get the fundamentals strong enough to enter Soft Landing with confidence."',
+    details: [
+      { label: "Goal", icon: Diamond, content: "Build the core base: programming, math, problem-solving, and tooling so you can survive Soft Landing without guessing." },
+      { label: "Who it's for", icon: User, content: "Beginners with basic coding + math who want a structured path (not random YouTube learning)." },
+      { label: "Outcome", icon: Trophy, content: "Eligible for Soft Landing." }
+    ]
+  },
+  {
+    title: "Soft landing",
+    badge: "ACADEMY",
+    description: "Daily mentorship rhythm, not occasional check-ins.",
+    details: [
+      { label: "Goal", icon: Diamond, content: "Turn fundamentals into real execution: rock-solid AI basics + disciplined work habits + essential engineering skills in a mentored structure." },
+      { label: "Who it's for", icon: User, content: "Early-career devs/students who understand some theory, but need structure, accountability, and real practice to level up." },
+      { label: "Outcome", icon: Trophy, content: "Capstone + readiness for specialization (qualify for Foundation after passing)." }
+    ]
+  },
+  {
+    title: "Foundation",
+    badge: "ACADEMY",
+    description: "This is where you stop learning generally and start training specifically",
+    details: [
+      { label: "Goal", icon: Diamond, content: "Deep specialization in your track through on-site immersive work, realistic projects, and production standards." },
+      { label: "Who it's for", icon: User, content: "Soft Landing graduates (or equivalent) ready to commit to intensive, track-specific training." },
+      { label: "Outcome", icon: Trophy, content: "Specialized mastery + verifiable work history, plus eligibility for Growth-3." }
+    ],
+    compensation: "$3/hour for project-based contributions.",
+    tags: ["DATA SCIENCE", "COMPUTER VISION", "NLP", "AI SOFTWARE ENGINEERING"]
+  },
+  {
+    title: "Growth-3",
+    badge: "COMPANY TALENT",
+    details: [
+      { label: "Goal", icon: Diamond, content: "Convert certified talent into top-tier engineers via paid client projects, mentorship, and leadership growth." },
+      { label: "Who it's for", icon: User, content: "Foundation-certified engineers ready for professional delivery standards." },
+      { label: "Outcome", icon: Trophy, content: "Professional consultant status (Top 1%) with performance-based rate growth." }
+    ],
+    compensation: "Pay grows by performance up to $50/hour."
+  }
+];
+---
+
+<section class="py-24 bg-background">
+  <Container>
+    <div class="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+      <!-- Left Column -->
+      <div class="lg:w-[35%] flex flex-col lg:sticky lg:top-32">
+        <p class="section-label !mb-6 text-zinc-400">
+          <span class="text-zinc-500">/01</span> 4-PHASE JOURNEY
+        </p>
+        <h2 class="section-title text-black font-semibold mb-6">
+          Program<br />
+          architecture
+        </h2>
+        <p class="text-[18px] font-medium text-zinc-500 mb-10 leading-relaxed">
+          A structured path from fundamentals to elite engineering
+        </p>
+
+        <!-- Button -->
+        <a href="#" class="flex items-stretch group cursor-pointer h-fit no-underline w-fit">
+          <div class="bg-brand px-8 py-4 text-black font-bold uppercase tracking-widest text-[16px] group-hover:bg-brand-hover transition-colors">
+            Explore full curriculum
+          </div>
+          <div class="bg-brand border-l border-black/10 px-4 flex items-center justify-center group-hover:bg-brand-hover transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform duration-300">
+              <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      <!-- Right Column -->
+      <div class="lg:w-[65%] flex flex-col gap-12">
+        {programs.map((program) => (
+          <div class="border border-zinc-100 shadow-sm overflow-hidden bg-white">
+            <!-- Header (Black Box) -->
+            <div class="bg-black p-[24px] flex flex-col gap-[24px]">
+              <div class="flex items-center gap-4">
+                <img src="/iconwhy.webp" alt="" class="w-6 h-6" />
+                <h3 class="text-[24px] font-semibold text-white tracking-tight">{program.title}</h3>
+                <div class="bg-[#1A1A1A] px-2.5 py-1 rounded">
+                  <span class="text-[10px] font-bold tracking-widest uppercase bg-gradient-to-r from-brand from-70% to-white bg-clip-text text-transparent">{program.badge}</span>
+                </div>
+              </div>
+              {program.description && (
+                <p class="text-[16px] font-medium text-zinc-400 italic">
+                  {program.description}
+                </p>
+              )}
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-[24px]">
+              <div class="flex flex-col gap-[24px]">
+                <!-- Details List -->
+                <div class="flex flex-col gap-[12px]">
+                  {program.details.map((detail) => (
+                    <div class:list={[
+                      "flex gap-6 py-4",
+                      detail.label !== "Outcome" ? "border-b border-zinc-200" : "bg-gradient-to-r from-[#EAEAEA] to-transparent -mx-[24px] px-[24px]"
+                    ]}>
+                      <div class="w-[30%] flex items-start gap-4">
+                        <detail.icon size={20} className="text-black mt-1 shrink-0" strokeWidth={2.5} />
+                        <span class="text-[18px] font-medium text-black">{detail.label}</span>
+                      </div>
+                      <div class="w-[70%] text-[16px] font-medium text-zinc-500 leading-relaxed">
+                        {detail.content}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <!-- Compensation Row -->
+                {program.compensation && (
+                  <div class="flex gap-6 py-4 bg-gradient-to-r from-[#FEF9C3] to-transparent -mx-[24px] px-[24px]">
+                    <div class="w-[30%] flex items-start gap-4">
+                      <div class="bg-black rounded-full p-0.5 mt-1 shrink-0">
+                        <CircleDollarSign size={16} className="text-[#FEF9C3]" strokeWidth={3} />
+                      </div>
+                      <span class="text-[18px] font-medium text-black">Compensation</span>
+                    </div>
+                    <div class="w-[70%] text-[16px] font-medium text-black leading-relaxed">
+                      {program.compensation}
+                    </div>
+                  </div>
+                )}
+
+                <!-- Tags -->
+                {program.tags && (
+                  <div class="flex flex-wrap gap-1.5 mt-2 mb-2">
+                    {program.tags.map((tag) => (
+                      <span class="bg-black text-white text-[11px] font-semibold px-2.5 py-1 tracking-wider">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <!-- Footer Buttons in Card -->
+                <div class="flex gap-4 pt-4">
+                  {!program.compensation && (
+                    <a href="#" class="flex-1 flex items-center justify-center gap-2 bg-[#F5F5F5] hover:bg-zinc-200 text-black font-semibold py-4 text-[14px] transition-colors border border-zinc-200/50">
+                      View curriculum <MoveUpRight size={16} />
+                    </a>
+                  )}
+                  <a href="#" class="flex-1 flex items-stretch group cursor-pointer no-underline">
+                    <div class="flex-1 bg-brand py-4 text-black font-semibold uppercase tracking-widest text-[14px] text-center group-hover:bg-brand-hover transition-colors">
+                      Apply
+                    </div>
+                    <div class="bg-brand border-l border-black/10 px-4 flex items-center justify-center group-hover:bg-brand-hover transition-colors">
+                      <ArrowRight size={18} strokeWidth={3} className="group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .section-title {
+    font-size: 48px;
+    line-height: 1.1;
+  }
+</style>
