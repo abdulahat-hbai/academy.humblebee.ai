@@ -1,0 +1,269 @@
+---
+import Container from "@/components/layout/Container.astro";
+import {
+  LayoutTemplate,
+  Layers,
+  Briefcase,
+  Check,
+  Users,
+  Network,
+  Zap,
+} from "lucide-react";
+---
+
+<section class="py-24 bg-white border-t border-zinc-100">
+  <Container>
+    <!-- Header -->
+    <div
+      class="flex flex-col lg:flex-row justify-between items-start gap-12 mb-16"
+    >
+      <div class="lg:w-[45%]">
+        <p class="section-label !mb-6 text-zinc-400">
+          <span class="text-zinc-500">/05</span> STRUCTURE
+        </p>
+        <h2
+          class="section-title text-black font-semibold !text-[48px] !leading-[1.1]"
+        >
+          How our programs<br />actually work
+        </h2>
+      </div>
+      <div class="lg:w-[45%] lg:pt-14">
+        <p class="section-subtitle text-zinc-600">
+          Our programs are not class-based or lecture-driven. They are
+          full-time, project-oriented, mentor-led environments designed to build
+          real execution capability.
+        </p>
+      </div>
+    </div>
+
+    <!-- Three Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+      <!-- Card 1: Engineering Fundamentals -->
+      <div class="flex flex-col border border-zinc-200 bg-white w-full lg:w-[408px]">
+        <div class="bg-black p-5 flex flex-col justify-between items-start h-[132px]">
+          <LayoutTemplate className="text-brand shrink-0" size={24} />
+          <div>
+            <h3
+              class="text-white text-[20px] font-semibold tracking-tight leading-snug"
+            >
+              Engineering fundamentals program
+            </h3>
+            <p class="text-zinc-400 text-[13px] font-medium mt-1">
+              Building the Foundation
+            </p>
+          </div>
+        </div>
+
+        <div class="h-[316px]">
+          <!-- Progress Bar -->
+          <div class="px-5 pt-5">
+            <div class="flex h-[24px] w-full overflow-hidden">
+              <div class="w-1/2 bg-brand"></div>
+              <div class="w-1/2 hatched"></div>
+            </div>
+            <div
+              class="flex h-3 items-center w-full mt-2.5 text-[10px] font-bold tracking-widest uppercase text-zinc-400"
+            >
+              <div class="w-1/2 flex items-center border-l border-zinc-300 pl-2 h-full">
+                50% CURRICULUM
+              </div>
+              <div class="w-1/2 flex items-center border-l border-r border-zinc-300 pl-2 h-full">
+                50% MENTOR-GUIDED
+              </div>
+            </div>
+          </div>
+
+          <!-- Bullets -->
+          <div class="p-5 pt-6 flex flex-col gap-5">
+            <div class="flex gap-3">
+              <div
+                class="bg-black rounded-full h-5 w-5 flex items-center justify-center shrink-0 mt-0.5"
+              >
+                <Check className="text-white" size={11} strokeWidth={4} />
+              </div>
+              <p class="text-[16px] font-medium text-zinc-600 leading-relaxed">
+                Hard-set curriculum (Math, Algorithms, Core Tech)
+              </p>
+            </div>
+            <div class="flex gap-3">
+              <div
+                class="bg-black rounded-full h-5 w-5 flex items-center justify-center shrink-0 mt-0.5"
+              >
+                <Check className="text-white" size={11} strokeWidth={4} />
+              </div>
+              <p class="text-[16px] font-medium text-zinc-600 leading-relaxed">
+                Mentors assign small tasks & address gaps
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Soft Landing -->
+      <div class="flex flex-col border border-zinc-200 bg-white w-full lg:w-[408px]">
+        <div class="bg-black p-5 flex flex-col justify-between items-start h-[132px]">
+          <Layers className="text-brand shrink-0" size={24} />
+          <div>
+            <h3
+              class="text-white text-[20px] font-semibold tracking-tight leading-snug"
+            >
+              Soft landing
+            </h3>
+            <p class="text-zinc-400 text-[13px] font-medium mt-1">
+              Learning through Execution
+            </p>
+          </div>
+        </div>
+
+        <div class="h-[316px]">
+          <!-- Progress Bar -->
+          <div class="px-5 pt-5">
+            <div class="flex h-[24px] w-full overflow-hidden">
+              <div class="w-1/4 bg-brand"></div>
+              <div class="w-3/4 hatched"></div>
+            </div>
+            <div
+              class="flex h-3 items-center w-full mt-2.5 text-[10px] font-bold tracking-widest uppercase text-zinc-400"
+            >
+              <div class="w-1/4 flex items-center border-l border-zinc-300 pl-2 h-full">
+                25% CURR.
+              </div>
+              <div class="w-3/4 flex items-center border-l border-r border-zinc-300 pl-2 h-full">
+                75% MENTOR-GUIDED WORK
+              </div>
+            </div>
+          </div>
+
+          <!-- Bullets -->
+          <div class="p-5 pt-6 flex flex-col gap-5">
+            <div class="flex gap-3">
+              <div
+                class="bg-black rounded-full h-5 w-5 flex items-center justify-center shrink-0 mt-0.5"
+              >
+                <Check className="text-white" size={11} strokeWidth={4} />
+              </div>
+              <p class="text-[16px] font-medium text-zinc-600 leading-relaxed">
+                Fixed portion for core concepts & standards
+              </p>
+            </div>
+            <div class="flex gap-3">
+              <div
+                class="bg-black rounded-full h-5 w-5 flex items-center justify-center shrink-0 mt-0.5"
+              >
+                <Check className="text-white" size={11} strokeWidth={4} />
+              </div>
+              <p class="text-[16px] font-medium text-zinc-600 leading-relaxed">
+                Mentors decide builds, studies & skill strengthening
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Foundation -->
+      <div class="flex flex-col border border-zinc-200 bg-white w-full lg:w-[408px] h-[697px]">
+        <div class="p-5 flex flex-col justify-between items-start card3-header h-[132px]">
+          <Briefcase className="text-brand shrink-0" size={24} />
+          <div>
+            <h3
+              class="text-white text-[20px] font-semibold tracking-tight leading-snug"
+            >
+              Foundation
+            </h3>
+            <p class="text-zinc-400 text-[13px] font-medium mt-1">
+              Real Projects Only
+            </p>
+          </div>
+        </div>
+
+        <!-- Progress Bar - Full Yellow -->
+        <div class="px-5 pt-5">
+          <div class="h-[24px] w-full bg-brand"></div>
+          <div
+            class="flex h-3 items-center w-full mt-2.5 text-[10px] font-bold tracking-widest uppercase text-black"
+          >
+            <div
+              class="flex items-center justify-center gap-1.5 border-l border-r border-zinc-300 w-full h-full"
+            >
+              <Zap size={11} className="text-black" />
+              PROJECT LEARNING
+            </div>
+          </div>
+        </div>
+
+        <!-- Bullets -->
+        <div class="px-5 pt-6 flex flex-col gap-5">
+          <div class="flex gap-3">
+            <div
+              class="bg-brand rounded-full h-5 w-5 flex items-center justify-center shrink-0 mt-0.5"
+            >
+              <Check className="text-black" size={11} strokeWidth={4} />
+            </div>
+            <p class="text-[16px] font-medium text-zinc-600 leading-relaxed">
+              No fixed learning split — entirely project driven
+            </p>
+          </div>
+          <div class="flex gap-3">
+            <div
+              class="bg-brand rounded-full h-5 w-5 flex items-center justify-center shrink-0 mt-0.5"
+            >
+              <Check className="text-black" size={11} strokeWidth={4} />
+            </div>
+            <p class="text-[16px] font-medium text-zinc-600 leading-relaxed">
+              Topics defined by Dept. Heads & Industry Trends
+            </p>
+          </div>
+        </div>
+
+        <!-- Sub-boxes -->
+        <div class="p-5 pt-5 flex flex-col gap-4">
+          <div class="border border-zinc-200 p-4">
+            <div class="flex items-center gap-2.5 mb-2">
+              <Users
+                className="text-black shrink-0"
+                size={17}
+                strokeWidth={2}
+              />
+              <h4 class="text-black font-semibold text-[15px]">
+                Department Heads
+              </h4>
+            </div>
+            <p class="text-[16px] font-medium text-zinc-500 leading-relaxed">
+              Define quarterly focus areas (e.g., "Learn X, Y, Z based on
+              trends")
+            </p>
+          </div>
+          <div class="border border-zinc-200 p-4">
+            <div class="flex items-center gap-2.5 mb-2">
+              <Network
+                className="text-black shrink-0"
+                size={17}
+                strokeWidth={2}
+              />
+              <h4 class="text-black font-semibold text-[15px]">Mentors</h4>
+            </div>
+            <p class="text-[16px] font-medium text-zinc-500 leading-relaxed">
+              Assign tasks based on project needs & individual gaps
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .hatched {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #facc15,
+      #facc15 1.5px,
+      transparent 1.5px,
+      transparent 6px
+    );
+  }
+
+  .card3-header {
+    background: linear-gradient(to right, #000000 40%, rgba(250, 204, 21, 0.25) 150%);
+  }
+</style>
